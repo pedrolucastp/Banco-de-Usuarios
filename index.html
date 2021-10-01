@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banco de Usuários</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Monserrat|Architects+Daughter" />
+    <script defer src="https://cdn.jsdelivr.net/gh/marak/Faker.js/dist/faker.min.js" type="text/javascript"></script>
+    <script defer src="index.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <menu>
+        <picture>
+          <img src="logo.png" alt="Logo" />
+          <p>Banco de Usuários</p>
+        </picture>
+        
+        <div class="botoes">
+          <button onclick="criarUsuarioAleatorio()">
+            <span class="material-icons"> group_add </span>
+            <p>Criar Aleatorios</p>
+          </button>
+          <button onclick="exibirUsuarios()">
+            <span class="material-icons"> info </span>
+            <p>Exibir Usuarios</p>
+          </button>
+          <button onclick="buscarUsuario()">
+            <span class="material-icons"> search </span>
+            <p>Buscar Usuario</p>
+          </button>
+          <button onclick="adicionarNovoUsuario()">
+            <span class="material-icons"> add_box </span>
+            <p>Adicionar Novo</p>
+          </button>
+          <button onclick="removerUsuario()">
+            <span class="material-icons"> delete </span>
+            <p>Remover Usuario</p>
+          </button>
+          <button onclick="limparConsole()">
+            <span class="material-icons"> clear_all </span>
+            <p>Limpar Console</p>
+          </button>
+        </div>
+      </menu>
+
+      <section>
+        <h1>
+          <p>Usuarios registrados</p>
+          <strong><p id="contador">0</p></strong>
+        </h1>
+        <div id="quadro"></div>
+        <menu>
+          <button onclick="organizaLista()">
+            <span class="material-icons"> sort_by_alpha </span>
+          </button>
+          <button onclick="apagarQuadro()">
+            <span class="material-icons"> highlight_off </span>
+          </button>
+          <button onclick="exportaCSV()">
+            <span class="material-icons"> print </span>
+          </button>
+        </menu>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

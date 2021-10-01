@@ -1,0 +1,241 @@
+:root {
+  --barraHeader: 50px;
+  --barraFooter: 50px;
+  
+}
+/* width */
+::-webkit-scrollbar {
+  width: 30px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: tomato; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+header {
+  height: var(--barraHeader);
+  background-color:#222;
+}
+main {
+  height: calc(100vh - var(--barraHeader) - var(--barraFooter));
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  min-width: 350px;
+}
+
+/* -------------------------MENU---------------------------- */
+
+main > menu {
+  display: flex;
+  height: 100%;
+  max-width: 300px;
+  width: 30%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #555;
+}
+
+main > menu > picture {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;text-align: center;
+  border-radius: 10px;
+  margin: 30px;
+  padding: 30px;
+  background: #bbb;
+}
+
+main > menu > picture > img {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  height: 100px;
+}
+
+main > menu > picture > p {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  font-family: "Monserrat", sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+
+.botoes {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 250px;
+  width: 100%;
+  max-height: 50%;
+  gap: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.botoes > button {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: #555;
+  cursor: pointer;
+  border: 0px solid #bbb;
+  border-radius: 5px;
+  width: 100%;
+  padding: 5px;
+}
+
+.botoes > button:hover {
+  background-color: tomato;
+}
+
+.botoes > button > span {
+  padding: 0 5px;
+  color: #eee;
+}
+
+.botoes > button > p {
+  font-family: "Monserrat", sans-serif;
+  font-weight: 600;
+  color: #eee;
+}
+
+/* -------------------------TELA---------------------------- */
+
+main > section {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 60%;
+  background-color: #fff;
+}
+
+main > section > h1 {
+  font-family: "Monserrat", sans-serif;
+  font-weight: 700;
+  display: flex;
+  height: 100px;
+  margin: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #555 ;
+  color: #fff;
+}
+#contador {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+  color: cornflowerblue;
+}
+
+#quadro {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: left;
+  background: seagreen;
+  border-radius: 5px;
+  border: 10px solid black;
+  margin: 10px;
+  padding: 10px;
+  overflow-y: scroll;
+  gap: 10px;
+}
+
+#quadro > div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  min-width: 375px;
+}
+
+#quadro p {
+  font-family: "Architects Daughter", cursive;
+  color: seashell;
+  padding: 5px;
+}
+
+#quadro > div img {
+  display: flex;
+  height: 120px;
+  width: 120px;
+  border: none;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+main > section > menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  height: 50px;
+  margin: 10px;
+  gap: 10px;
+}
+
+main > section > menu > button {
+  background-color: #555;
+  height: 50px;
+  width: 100%;
+  border: 2px solid #222;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  color: cornsilk;
+}
+
+main > section > menu > button:hover {
+  background-color: #aaa;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+footer {
+  height: var(--barraFooter);
+  background-color: #222;
+}
