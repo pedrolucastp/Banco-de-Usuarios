@@ -51,7 +51,7 @@ function exibirUsuarios() {
 }
 
 function buscarUsuario() {
-  let buscar = prompt("Encontre por um nome ou email");
+  let buscar = prompt("Encontre usuarios por nome, email ou estado");
   apagarQuadro();
 
   for (usuario of usuarios) {
@@ -181,63 +181,3 @@ for (cadaPerfil of usuarios) {
 console.log(csv)
 }
 
-/* -------------Exercicio GET-SET------------- */
-
-/* // 1. A partir do objeto:
-  
-const caneta = {
-  marca: 'bic',
-  tipo: 'esferográfica',
-}
-    
-// Crie um novo objeto canetaVermelha com as mesmas propriedades e 
-// valores da caneta acima, mas com a propriedade cor com o 
-// valor vermelha.
-
-const canetaVermelha = {
-  ...caneta,
-  cor: "vermelha",
-};
-console.log(canetaVermelha) */
-
-/* // 2. Faça um objeto pessoa com as propriedades nomeCompleto, email 
-// e primeiroNome (com get).
-
-const pessoa = {
-  nomeCompleto: "Lorem Ipsum",
-  email: "loremipsums@email.com",
-  get primeiroNome() {
-    return this.nomeCompleto.split(" ")[0]
-  },
-};
-console.log(pessoa.primeiroNome) */
-
-// 3. Faça um objeto TV com as propriedades canal, volume e ligada
-// e métodos liga, desliga, mudaDeCanal e aumentaVolume, diminuiVolume.
-
-/* const tv = {
-  get ligada() { 
-    return this.ligada
-  },
-
-  get canal() {
-    return this.canal
-  },
-  set canal(mudaDeCanal) {
-    this.canal = mudaDeCanal
-  },
-
-  get volume() {
-    return this.volume
-  },
-  set volume(aumentaVolume) {
-    this.volume = aumentaVolume
-  },
-}
-console.log(tv)
-tv.canal = 1
-console.log(tv)
-tv.volume = +10
-console.log(tv)
-tv.ligada = false
-console.log(tv) */
