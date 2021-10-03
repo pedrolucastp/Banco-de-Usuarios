@@ -155,7 +155,7 @@ function organizaLista() {
 
   for (usuario of listaOrganizada) {
     elemento = document.createElement("P");
-    texto1 = document.createTextNode(usuario.nome);
+    texto1 = document.createTextNode(usuario.nomeCompleto);
     elemento.appendChild(texto1);
     document.getElementById("quadro").appendChild(elemento);
   }
