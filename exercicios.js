@@ -93,7 +93,7 @@
   console.log('canal da tv: ' + tv.canal) */
 
 // 4. Refaça o exercício da TV utilizando uma função construtora.
-const CANAL_DEFAULT = 1;
+/* const CANAL_DEFAULT = 1;
 const VOLUME_DEFAULT = 0;
 const LIGADA_DEFAULT = false;
 
@@ -133,7 +133,7 @@ constroiTv.prototype.diminuirVolume = function() {
 const tv = new constroiTv()
 const tv2 = new constroiTv()
 
-console.log(tv)
+console.log(tv) */
 
 // 5. Refaça o exercício da TV utilizando a sintaxe de classe (class).
 
