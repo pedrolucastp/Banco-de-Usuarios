@@ -1,23 +1,6 @@
 :root {
   --barraHeader: 50px;
   --barraFooter: 50px;
-  
-}
-/* width */
-::-webkit-scrollbar {
-  width: 30px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: tomato; 
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
 }
 
 * {
@@ -27,7 +10,7 @@
 }
 header {
   height: var(--barraHeader);
-  background-color:#222;
+  background-color: #222;
 }
 main {
   height: calc(100vh - var(--barraHeader) - var(--barraFooter));
@@ -54,10 +37,11 @@ main > menu > picture {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;text-align: center;
+  align-items: center;
+  text-align: center;
   border-radius: 10px;
-  margin: 30px;
-  padding: 30px;
+  margin: 10px;
+  padding: 10px;
   background: #bbb;
 }
 
@@ -66,7 +50,6 @@ main > menu > picture > img {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 5px;
   height: 100px;
 }
 
@@ -75,24 +58,20 @@ main > menu > picture > p {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 5px;
   font-family: "Monserrat", sans-serif;
   font-weight: 700;
   text-align: center;
 }
-
-
 
 .botoes {
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content:center;
   max-width: 250px;
   width: 100%;
-  max-height: 50%;
-  gap: 10px;
+  max-height: 60%;
   padding: 10px;
   margin: 10px;
 }
@@ -104,10 +83,11 @@ main > menu > picture > p {
   align-items: center;
   background-color: #555;
   cursor: pointer;
-  border: 0px solid #bbb;
+  border: none;
   border-radius: 5px;
   width: 100%;
-  padding: 5px;
+  padding: 10px;
+  color: #eee;
 }
 
 .botoes > button:hover {
@@ -115,14 +95,15 @@ main > menu > picture > p {
 }
 
 .botoes > button > span {
-  padding: 0 5px;
-  color: #eee;
+  padding: 0 10px;
+  width: 30px;
 }
 
 .botoes > button > p {
   font-family: "Monserrat", sans-serif;
-  font-weight: 600;
-  color: #eee;
+  font-weight: 400;
+  font-size: medium;
+  flex: 1;
 }
 
 /* -------------------------TELA---------------------------- */
@@ -147,7 +128,7 @@ main > section > h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #555 ;
+  background-color: #555;
   color: #fff;
 }
 #contador {
@@ -202,6 +183,22 @@ main > section > h1 {
   align-items: center;
   justify-content: center;
   padding: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 30px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: tomato;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 main > section > menu {

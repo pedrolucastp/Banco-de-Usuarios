@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Banco de Usuários</title>
+    <title> Banco de Usuários </title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Monserrat|Architects+Daughter" />
     <script defer src="https://cdn.jsdelivr.net/gh/marak/Faker.js/dist/faker.min.js" type="text/javascript"></script>
     <script defer src="index.js" type="text/javascript"></script>
-    <script src="exercicios.js" type="text/javascript"></script>
   </head>
   <body>
     <header></header>
@@ -20,14 +19,13 @@
           <img src="logo.png" alt="Logo" />
           <p>Banco de Usuários</p>
         </picture>
-        
         <div class="botoes">
           <button onclick="criarUsuarioAleatorio()">
             <span class="material-icons"> group_add </span>
             <p>Criar Aleatorios</p>
           </button>
           <button onclick="exibirUsuarios()">
-            <span class="material-icons"> info </span>
+            <span class="material-icons"> format_align_left </span>
             <p>Exibir Usuarios</p>
           </button>
           <button onclick="buscarUsuario()">
@@ -37,6 +35,10 @@
           <button onclick="adicionarNovoUsuario()">
             <span class="material-icons"> add_box </span>
             <p>Adicionar Novo</p>
+          </button>
+          <button class="disabled" onclick="">
+            <span class="material-icons"> app_registration </span>
+            <p>Editar Usuario</p>
           </button>
           <button onclick="removerUsuario()">
             <span class="material-icons"> delete </span>
