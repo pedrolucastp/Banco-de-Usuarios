@@ -32,11 +32,6 @@ class ConstroiPessoa {
   }
 }
 
-function atualizaContador() {
-  quantidade = usuarios.length;
-  document.getElementById("contador").innerText = quantidade;
-}
-
 function criarUsuarioAleatorio() {
   let quantidade = parseInt(prompt("Informe quantos aleatorios adicionar"));
   i = 0;
@@ -114,6 +109,8 @@ function adicionarNovoUsuario() {
   atualizaContador();
 }
 
+// function editarUsuario() {}
+
 function removerUsuario() {
   let remover = prompt("Remover por email\n(0 para remover todos)");
   let listaAtualizada = [];
@@ -129,6 +126,10 @@ function removerUsuario() {
     usuarios = listaAtualizada;
   }
   exibirUsuarios();
+}
+
+function limparConsole() {
+  console.clear();
 }
 
 function organizaLista() {
@@ -148,8 +149,9 @@ function organizaLista() {
   }
 }
 
-function limparConsole() {
-  console.clear();
+function atualizaContador() {
+  quantidade = usuarios.length;
+  document.getElementById("contador").innerText = quantidade;
 }
 
 function apagarQuadro() {
