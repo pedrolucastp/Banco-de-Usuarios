@@ -1,39 +1,50 @@
 let usuarios = [];
 
+class ConstroiPessoa {
+  constructor(novoNome) {
+    faker.locale = "pt_BR";
+    this.nomeCompleto = novoNome
+    this.tel = faker.phone.phoneNumber();
+    this.estado = faker.address.state();
+    this.avatar = faker.internet.avatar();
+  }
+  get userName() {
+    let userName = this.nomeCompleto.split(" ").join("");
+    return userName.toLowerCase();
+  }
+  get titulo() {
+    let tituloSeparado = this.nomeCompleto.split(" ");
+    let [titulo, ...nome] = tituloSeparado;
+    return titulo.slice(-1) === "." ? titulo : "";
+  }
+  get nome() {
+    let nomeSeparado = this.nomeCompleto.split(" ");
+    let [a, b, ...c] = nomeSeparado;
+    return a.slice(-1) === "." ? b : a;
+  }
+  get sobreNome() {
+    return this.nomeCompleto.split(" ").slice(-1).join(" ");
+  }
+  get email() {
+    let emailExemple = faker.internet.email();
+    let dominio = emailExemple.split("@")[1];
+    return this.userName + "@" + dominio;
+  }
+}
+
 function atualizaContador() {
   quantidade = usuarios.length;
   document.getElementById("contador").innerText = quantidade;
 }
 
 function criarUsuarioAleatorio() {
-  faker.locale = "pt_BR";
   let quantidade = parseInt(prompt("Informe quantos aleatorios adicionar"));
-  let usuariosAleatorios = Array.from({ length: quantidade }, () => ({
-    nomeCompleto: faker.name.findName(),
-    email: faker.internet.email(),
-    tel: faker.phone.phoneNumber(),
-    estado: faker.address.state(),
-    avatar: faker.internet.avatar(),
-    get userName() {
-      let userName = this.nomeCompleto.split(" ").join("");
-      return userName.toLowerCase();
-    },
-    get titulo() {
-      let tituloSeparado = this.nomeCompleto.split(" ");
-      let [titulo, ...nome] = tituloSeparado;
-      return titulo.slice(-1) === "." ? titulo : "";
-    },
-    get nome() {
-      let nomeSeparado = this.nomeCompleto.split(" ");
-      let [a, b, ...c] = nomeSeparado;
-      return a.slice(-1) === "." ? b : a;
-    },
-    get sobreNome() {
-      return this.nomeCompleto.split(" ").slice(-1).join(" ");
-    },
-  }));
-  for (usuario of usuariosAleatorios) {
-    usuarios.push(usuario);
+  i = 0;
+
+  while (i < quantidade) {
+    nomeCompleto = faker.name.findName();
+    usuarios.push(new ConstroiPessoa(nomeCompleto));
+    ++i;
   }
   atualizaContador();
 }
@@ -46,17 +57,19 @@ function exibirUsuarios() {
     elemento.appendChild(texto1);
     document.getElementById("quadro").appendChild(elemento);
   }
-  console.log("Usuarios registrados:\n", usuarios);
+  // console.log("Usuarios registrados:\n", usuarios);
   atualizaContador();
 }
 
 function buscarUsuario() {
-  let buscar = prompt("Encontre usuarios por nome, email ou estado");
   apagarQuadro();
-
+  let buscar = prompt("Encontre usuarios por nome, email ou estado");
   for (usuario of usuarios) {
-    if (buscar === usuario.nome || buscar === usuario.email || buscar === usuario.estado) {
-      console.log(usuario);
+    if (
+      buscar === usuario.nome ||
+      buscar === usuario.email ||
+      buscar === usuario.estado
+    ) {
       detalhesUsuario();
     }
   }
@@ -96,35 +109,9 @@ function detalhesUsuario() {
 }
 
 function adicionarNovoUsuario() {
-  faker.locale = "pt_BR";
-  let usuario = {
-    estado: faker.address.state(),
-    tel: faker.phone.phoneNumber(),
-    avatar: faker.internet.avatar(),
-
-    get userName() {
-      let userName = this.nomeCompleto.split(" ").join("");
-      return userName.toLowerCase();
-    },
-    get titulo() {
-      let tituloSeparado = this.nomeCompleto.split(" ");
-      let [titulo, ...nome] = tituloSeparado;
-      return titulo.slice(-1) === "." ? titulo : " ";
-    },
-    get nome() {
-      let nomeSeparado = this.nomeCompleto.split(" ");
-      let [a, b, ...c] = nomeSeparado;
-      return a.slice(-1) === "." ? b : a;
-    },
-    get sobreNome() {
-      return this.nomeCompleto.split(" ").slice(-1).join(" ");
-    },
-  };
-  usuario.nomeCompleto = prompt("Infome o nome completo");
-  usuario.email = prompt("Informe o e-mail");
-
-  usuarios.push(usuario);
-  exibirUsuarios();
+  novoNome = prompt("Novo nome")
+  usuarios.push(new ConstroiPessoa(novoNome))
+  atualizaContador();
 }
 
 function removerUsuario() {
@@ -170,14 +157,14 @@ function apagarQuadro() {
 }
 
 function exportaCSV() {
-let csv = "nome completo, email, telefone, avatar, username, titulo, primeiro nome, ultimo nome\n";
-for (cadaPerfil of usuarios) {
+  let csv =
+    "nome completo, email, telefone, avatar, username, titulo, primeiro nome, ultimo nome\n";
+  for (cadaPerfil of usuarios) {
     for (cadaCampo in cadaPerfil) {
       info = cadaPerfil[cadaCampo];
       csv = csv + info + ", ";
     }
     csv = csv.slice(0, -2) + "\n";
   }
-console.log(csv)
+  console.log(csv);
 }
-
