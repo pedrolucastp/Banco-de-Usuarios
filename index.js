@@ -3,10 +3,11 @@ let usuarios = [];
 class ConstroiPessoa {
   constructor(novoNome) {
     faker.locale = "pt_BR";
-    this.nomeCompleto = novoNome
+    this.nomeCompleto = novoNome;
     this.tel = faker.phone.phoneNumber();
     this.estado = faker.address.state();
     this.avatar = faker.internet.avatar();
+    this.uuid = faker.datatype.uuid();
   }
   get userName() {
     let userName = this.nomeCompleto.split(" ").join("");
@@ -104,12 +105,37 @@ function detalhesUsuario() {
 }
 
 function adicionarNovoUsuario() {
-  novoNome = prompt("Novo nome")
-  usuarios.push(new ConstroiPessoa(novoNome))
+  novoNome = prompt("Novo nome");
+  usuarios.push(new ConstroiPessoa(novoNome));
   atualizaContador();
 }
 
-// function editarUsuario() {}
+function editarUsuario() {
+  let pessoaId = prompt("Encontre usuarios por uuid");
+  for (usuario of usuarios) {
+    if (pessoaId === usuario.uuid) {
+      let opcao = prompt(
+        "Escolha qual campo editar:\n1. Username\n2. Email\n3. Estado"
+      );
+      switch (opcao) {
+        case "1":
+          let novoUserName = prompt("Informe o novo nome de usuario");
+          usuario.userName = novoUserName;
+          break;
+        case "2":
+          let novoEmail = prompt("Informe o novo email");
+          usuario.email = novoEmail;
+          break;
+        case "3":
+          let novoEstado = prompt("Informe o novo estado");
+          usuario.estado = novoEstado;
+          break;
+        default:
+          console.log(`Desculpa, ${opcao} não encontrada.`);
+      }
+    }
+  }
+}
 
 function removerUsuario() {
   let remover = prompt("Remover por email\n(0 para remover todos)");
@@ -170,3 +196,16 @@ function exportaCSV() {
   }
   console.log(csv);
 }
+
+// class Dog {
+//   constructor({breed = "muut", castrated = false}) {
+//     this.breed = breed;
+//     this.castrated = castrated;
+//   }
+// }
+
+// const dog1 = new Dog({})
+// const dog2 = new Dog({
+//   breed: 'poodle',
+//   castrated: true,
+// })
