@@ -3,7 +3,7 @@ let usuarios = [];
 class ConstroiPessoa {
   constructor(novoNome) {
     faker.locale = "pt_BR";
-    this.nomeCompleto = novoNome;
+    this.nomeCompleto = novoNome || faker.name.findName();
     this.tel = faker.phone.phoneNumber();
     this.estado = faker.address.state();
     this.avatar = faker.internet.avatar();
@@ -36,10 +36,8 @@ class ConstroiPessoa {
 function criarUsuarioAleatorio() {
   let quantidade = parseInt(prompt("Informe quantos aleatorios adicionar"));
   i = 0;
-
   while (i < quantidade) {
-    nomeCompleto = faker.name.findName();
-    usuarios.push(new ConstroiPessoa(nomeCompleto));
+    usuarios.push(new ConstroiPessoa());
     ++i;
   }
   atualizaContador();
@@ -53,18 +51,18 @@ function exibirUsuarios() {
     elemento.appendChild(texto1);
     document.getElementById("quadro").appendChild(elemento);
   }
-  // console.log("Usuarios registrados:\n", usuarios);
   atualizaContador();
 }
 
 function buscarUsuario() {
   apagarQuadro();
-  let buscar = prompt("Encontre usuarios por nome, email ou estado");
+  let buscar = prompt("Encontre usuarios por nome, email, estado ou id");
   for (usuario of usuarios) {
     if (
       buscar === usuario.nome ||
       buscar === usuario.email ||
-      buscar === usuario.estado
+      buscar === usuario.estado ||
+      buscar === usuario.uuid
     ) {
       detalhesUsuario();
     }
