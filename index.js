@@ -1,17 +1,21 @@
 let usuarios = [];
 
 class ConstroiPessoa {
+  #nomeCompleto
+  #tel
+  #estado
+  #avatar
+  #uuid
   constructor(novoNome) {
     faker.locale = "pt_BR";
-    this.nomeCompleto = novoNome || faker.name.findName();
-    this.tel = faker.phone.phoneNumber();
-    this.estado = faker.address.state();
-    this.avatar = faker.internet.avatar();
-    this.uuid = faker.datatype.uuid();
+    this.#nomeCompleto = novoNome || faker.name.findName();
+    this.#tel = faker.phone.phoneNumber();
+    this.#estado = faker.address.state();
+    this.#avatar = faker.internet.avatar();
+    this.#uuid = faker.datatype.uuid();
   }
   get userName() {
-    let userName = this.nomeCompleto.split(" ").join("");
-    return userName.toLowerCase();
+    return this.nomeCompleto.split(" ").join("").toLowerCase();
   }
   get titulo() {
     let tituloSeparado = this.nomeCompleto.split(" ");
@@ -31,6 +35,8 @@ class ConstroiPessoa {
     let dominio = emailExemple.split("@")[1];
     return this.userName + "@" + dominio;
   }
+  // set nomeCompleto(novoNome)
+  // return 
 }
 
 function criarUsuarioAleatorio() {
@@ -194,16 +200,3 @@ function exportaCSV() {
   }
   console.log(csv);
 }
-
-// class Dog {
-//   constructor({breed = "muut", castrated = false}) {
-//     this.breed = breed;
-//     this.castrated = castrated;
-//   }
-// }
-
-// const dog1 = new Dog({})
-// const dog2 = new Dog({
-//   breed: 'poodle',
-//   castrated: true,
-// })
