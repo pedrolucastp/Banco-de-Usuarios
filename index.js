@@ -1,18 +1,14 @@
 let usuarios = [];
 
 class ConstroiPessoa {
-  #nomeCompleto
-  #tel
-  #estado
-  #avatar
-  #uuid
+
   constructor(novoNome) {
     faker.locale = "pt_BR";
-    this.#nomeCompleto = novoNome || faker.name.findName();
-    this.#tel = faker.phone.phoneNumber();
-    this.#estado = faker.address.state();
-    this.#avatar = faker.internet.avatar();
-    this.#uuid = faker.datatype.uuid();
+    this.nomeCompleto = novoNome ? novoNome : faker.name.findName();
+    this.tel = faker.phone.phoneNumber();
+    this.estado = faker.address.state();
+    this.avatar = faker.image.avatar();
+    this.uuid = faker.datatype.uuid();
   }
   get userName() {
     return this.nomeCompleto.split(" ").join("").toLowerCase();
@@ -34,9 +30,7 @@ class ConstroiPessoa {
     let emailExemple = faker.internet.email();
     let dominio = emailExemple.split("@")[1];
     return this.userName + "@" + dominio;
-  }
-  // set nomeCompleto(novoNome)
-  // return 
+  } 
 }
 
 function criarUsuarioAleatorio() {
@@ -109,7 +103,7 @@ function detalhesUsuario() {
 }
 
 function adicionarNovoUsuario() {
-  novoNome = prompt("Novo nome");
+  const novoNome = prompt("Novo nome");
   usuarios.push(new ConstroiPessoa(novoNome));
   atualizaContador();
 }
